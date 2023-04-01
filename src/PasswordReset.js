@@ -15,6 +15,10 @@ function PasswordReset() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if(password != passwordConfirmation){
+      setErrorMessage("Passwords do not match");
+      return
+    }
     const resetToken = new URLSearchParams(window.location.search).get(
       "reset_password_token"
     );
